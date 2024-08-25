@@ -14,12 +14,16 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build]
 
-     - name: Deploy to server
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy to server
         run: |
           curl -X POST -H "Content-Type: application/json" \
             -H "Authorization: Bearer ${{ secrets.GH_ACTIONS_SECRET }}" \
             -d '{
                   "ref": "${{ github.ref }}",
-                  "repository": "${{ github.repository }}",
+                  "repository": "${{ github.repository }}"
                 }' \
             https://github-webhook.soyd.in
