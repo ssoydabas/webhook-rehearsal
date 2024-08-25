@@ -8,7 +8,7 @@ console.log(`Port: ${port}`);
 app.use(express.json());
 
 app.get("/hello-world", (req: Request, res: Response) => {
-  res.json({ message: "Hello, World!" });
+  res.json({ message: "Hello, World!!" });
 });
 
 app.post("/echo-message", (req: Request, res: Response) => {
